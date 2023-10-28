@@ -38,9 +38,7 @@ const SideBar: React.FC<SideBarProps> = ({
                 <Box>
                     <div className="flex flex-col gap-y-4 px-5 py-4">
                         {routes.map(item => (
-                            <SideBarItem key={item.label} {...item}>
-
-                            </SideBarItem>
+                            <SideBarItem key={item.label} {...item} />
                         ))}
                     </div>
                 </Box>
