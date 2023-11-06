@@ -6,7 +6,6 @@ import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 import useUploadModal from "@/hooks/useUploadModal";
 import { Song } from "@/types";
-import ListItem from "./ListItem";
 import MediaItem from "./MediaItem";
 
 
