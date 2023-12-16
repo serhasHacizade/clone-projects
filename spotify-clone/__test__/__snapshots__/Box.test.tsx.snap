@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`YourComponent renders with correct styles and children 1`] = `
+<div
+  class="test-class"
+>
+  Test Children
+</div>
+`;
