@@ -5,12 +5,12 @@ import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
-import useRegisterModal from "../hooks/useRegisterModal";
+import useRegisterModal from "../../hooks/useRegisterModal";
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
-import toast from "react-hot-toast";
 import Button from "../Button";
 
 const RegisterModal = () => {
