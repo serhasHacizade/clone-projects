@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Box from '../components/Box'; // YourComponent dosyasını buraya doğru şekilde import etmelisiniz
+import Box from '../components/Box';
 
 test('YourComponent renders with correct styles and children', () => {
   const mockChildren = 'Test Children';
@@ -10,8 +10,6 @@ test('YourComponent renders with correct styles and children', () => {
       {mockChildren}
     </Box>
   );
-
-  // Componentin doğru şekilde render edildiğini kontrol ediyoruz
   expect(getByText('Test Children')).toBeTruthy()
 
 });
