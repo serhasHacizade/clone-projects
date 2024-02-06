@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button";
+import Marketing from "./(marketing)/page";
 
 const Home = () => {
   return (
     <div>
-      <Button>Delete</Button>
+      <Marketing />
     </div>
   );
 }
