@@ -35,8 +35,10 @@ const HeadingPage = () => {
             )}
             {!isAuthenticated && !isLoading && (
                 <SignInButton mode="modal">
-                    Get Jotion free
-                    <ArrowRight className="h-4 w-4 ml-2" />
+                    <Button>
+                        Get Jotion free
+                        <ArrowRight className="h-4 w-4 ml-2" />
+                    </Button>
                 </SignInButton>
             )}
         </div>
