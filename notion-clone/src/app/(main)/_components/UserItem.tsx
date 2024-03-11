@@ -5,8 +5,8 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import {
     DropdownMenu, DropdownMenuContent, DropdownMenuSeparator,
     DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger
-} from "@radix-ui/react-dropdown-menu";
-import { useUser } from "@clerk/clerk-react";
+} from "@/components/ui/dropdown-menu";
+import { useUser, SignOutButton } from "@clerk/clerk-react";
 
 const UserItem = () => {
 
@@ -35,11 +35,22 @@ const UserItem = () => {
                     <div className="flex items-center gap-x-2">
                         <div className="rounded-md bg-secondary p-1">
                             <Avatar>
-                                <AvatarImage src={user?.imageUrl}/>
+                                <AvatarImage src={user?.imageUrl} />
                             </Avatar>
+                        </div>
+                        <div className="space-y-1">
+                            <p className="text-sm line-clamp-1">
+                                {user?.fullName}&apos;s Jotion
+                            </p>
                         </div>
                     </div>
                 </div>
+                <DropdownMenuSeparator />
+                    <DropdownMenuItem asChild className="w-full cursor-pointer text-muted-foreground">
+                        <SignOutButton>
+                            Log out
+                        </SignOutButton>
+                    </DropdownMenuItem>
             </DropdownMenuContent>
         </DropdownMenu>
     );
