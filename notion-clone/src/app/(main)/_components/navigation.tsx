@@ -7,17 +7,16 @@ import { useMediaQuery } from "usehooks-ts"
 
 import { cn } from "@/lib/utils";
 import UserItem from "./UserItem";
-import { useMutation, useQuery } from "convex/react";
+import { useMutation } from "convex/react";
 import { api } from "../../../../convex/_generated/api";
 import Item from "./item";
 import { toast } from "sonner";
+import DocumentList from "./DocumentList";
 
 
 const Navigation = () => {
     const pathName = usePathname();
     const isMobile = useMediaQuery("(max-width:768px)");
-
-    const documents = useQuery(api.documents.get);
 
     const create = useMutation(api.documents.create);
 
@@ -76,7 +75,7 @@ const Navigation = () => {
         if (sidebarRef.current && navbarRef.current) {
             setIsCollapsed(false);
             setIsResetting(true);
-            
+
             sidebarRef.current.style.width = isMobile ? "100%" : "240px";
             navbarRef.current.style.setProperty("width", isMobile ? "0" : "calc(100% - 240px)");
             navbarRef.current.style.setProperty("left", isMobile ? "100%" : "240px");
@@ -97,7 +96,7 @@ const Navigation = () => {
     };
 
     const handleCreate = () => {
-        const promise = create({title: "Untitled"});
+        const promise = create({ title: "Untitled" });
         toast.promise(promise, {
             loading: "Creating a new note...",
             success: "New note created!",
@@ -117,14 +116,12 @@ const Navigation = () => {
                 </div>
                 <div>
                     <UserItem />
-                    <Item label="Search" icon={Search} isSearch onClick={() => {}}/>
-                    <Item label="Settings" icon={Settings} isSearch onClick={() => {}}/>
+                    <Item label="Search" icon={Search} isSearch onClick={() => { }} />
+                    <Item label="Settings" icon={Settings} isSearch onClick={() => { }} />
                     <Item onClick={handleCreate} label="New page" icon={PlusCircle} />
                 </div>
                 <div className="mt-4">
-                    {documents?.map((doc) => (
-                        <p key={doc._id}>{doc.title}</p>
-                    ))}
+                    <DocumentList />
                 </div>
                 <div onMouseDown={handleMouseDown} onClick={resetWidth} className="opacity-0 group-hover/sidebar:opacity-100 transition
                 cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0"/>
