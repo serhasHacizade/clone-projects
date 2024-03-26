@@ -15,6 +15,7 @@ import DocumentList from "./DocumentList";
 
 import {Popover, PopoverTrigger, PopoverContent} from "@/components/ui/popover"
 import TrashBox from "./trashBox";
+import { useSearch } from "@/hooks/use-search";
 
 
 const Navigation = () => {
@@ -28,6 +29,8 @@ const Navigation = () => {
     const navbarRef = useRef<ElementRef<"div">>(null);
     const [isResetting, setIsResetting] = useState(false);
     const [isCollapsed, setIsCollapsed] = useState(isMobile);
+
+    const search = useSearch();
 
     useEffect(() => {
         if (isMobile) {
@@ -119,7 +122,7 @@ const Navigation = () => {
                 </div>
                 <div>
                     <UserItem />
-                    <Item label="Search" icon={Search} isSearch onClick={() => { }} />
+                    <Item label="Search" icon={Search} isSearch onClick={search.onOpen} />
                     <Item label="Settings" icon={Settings} isSearch onClick={() => { }} />
                     <Item onClick={handleCreate} label="New page" icon={PlusCircle} />
                 </div>
