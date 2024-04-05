@@ -1,6 +1,6 @@
 "use client"
 
-import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Sidebar, Trash } from "lucide-react";
+import { ChevronsLeft, MenuIcon, Plus, PlusCircle, Search, Settings, Sidebar, Trash, Heart } from "lucide-react";
 import { useParams, usePathname } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
 import { useMediaQuery } from "usehooks-ts"
@@ -35,6 +35,7 @@ const Navigation = () => {
     const search = useSearch();
     const settings = useSettings();
     const params = useParams();
+
 
     useEffect(() => {
         if (isMobile) {
@@ -113,8 +114,6 @@ const Navigation = () => {
             error: "Failed to create a new note."
         })
     };
-
-
     return (
         <>
             <aside ref={sidebarRef} className={cn("group/sidebar h-full bg-secondary overflow-y-auto relative flex w-60 flex-col z-[99999]", isResetting &&
