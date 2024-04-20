@@ -3,6 +3,8 @@
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
+
 import { ImageIcon, X } from "lucide-react";
 import { useCoverImage } from "@/hooks/use-cover-image";
 import { useMutation } from "convex/react";
@@ -65,3 +67,10 @@ const Cover = ({
 }
 
 export default Cover;
+
+
+Cover.Skeleton = function CoverSkeleton() {
+    return (
+        <Skeleton className="w-full h-[12vh]"/>
+    );
+};
