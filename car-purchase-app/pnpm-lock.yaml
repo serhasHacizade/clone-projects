@@ -41,9 +41,15 @@ importers:
       '@ngrx/store':
         specifier: ^17.2.0
         version: 17.2.0(@angular/core@17.3.6(rxjs@7.8.1)(zone.js@0.14.5))(rxjs@7.8.1)
+      '@ngrx/store-devtools':
+        specifier: ^17.2.0
+        version: 17.2.0(@ngrx/store@17.2.0(@angular/core@17.3.6(rxjs@7.8.1)(zone.js@0.14.5))(rxjs@7.8.1))(rxjs@7.8.1)
       express:
         specifier: ^4.18.2
         version: 4.19.2
+      primeflex:
+        specifier: ^3.3.1
+        version: 3.3.1
       primeng:
         specifier: ^17.15.0
         version: 17.15.0(@angular/common@17.3.6(@angular/core@17.3.6(rxjs@7.8.1)(zone.js@0.14.5))(rxjs@7.8.1))(@angular/core@17.3.6(rxjs@7.8.1)(zone.js@0.14.5))(@angular/forms@17.3.6(@angular/common@17.3.6(@angular/core@17.3.6(rxjs@7.8.1)(zone.js@0.14.5))(rxjs@7.8.1))(@angular/core@17.3.6(rxjs@7.8.1)(zone.js@0.14.5))(@angular/platform-browser@17.3.6(@angular/animations@17.3.6(@angular/core@17.3.6(rxjs@7.8.1)(zone.js@0.14.5)))(@angular/common@17.3.6(@angular/core@17.3.6(rxjs@7.8.1)(zone.js@0.14.5))(rxjs@7.8.1))(@angular/core@17.3.6(rxjs@7.8.1)(zone.js@0.14.5)))(rxjs@7.8.1))(rxjs@7.8.1)(zone.js@0.14.5)
@@ -1184,6 +1190,12 @@ packages:
   '@ljharb/through@2.3.13':
     resolution: {integrity: sha512-/gKJun8NNiWGZJkGzI/Ragc53cOdcLNdzjLaIa+GEjguQs0ulsurx8WN0jijdK9yPqDvziX995sMRLyLt1uZMQ==}
     engines: {node: '>= 0.4'}
+
+  '@ngrx/store-devtools@17.2.0':
+    resolution: {integrity: sha512-ig0qr6hMexZGnrlxfHvZmu5CanRjH7hhx60XUbB5BdBvWJIIRaWKPLcsniiDUhljAD87gvzrrilbCTiML38+CA==}
+    peerDependencies:
+      '@ngrx/store': 17.2.0
+      rxjs: ^6.5.3 || ^7.5.0
 
   '@ngrx/store@17.2.0':
     resolution: {integrity: sha512-7wKgZ59B/6yQSvvsU0DQXipDqpkAXv7LwcXLD5Ww7nvqN0fQoRPThMh4+Wv55DCJhE0bQc1NEMciLA47uRt7Wg==}
@@ -3176,6 +3188,9 @@ packages:
   postcss@8.4.35:
     resolution: {integrity: sha512-u5U8qYpBCpN13BsiEB0CbR1Hhh4Gc0zLFuedrHJKMctHCHAGrMdG0PRM/KErzAL3CU6/eckEtmHNB3x6e3c0vA==}
     engines: {node: ^10 || ^12 || >=14}
+
+  primeflex@3.3.1:
+    resolution: {integrity: sha512-zaOq3YvcOYytbAmKv3zYc+0VNS9Wg5d37dfxZnveKBFPr7vEIwfV5ydrpiouTft8MVW6qNjfkaQphHSnvgQbpQ==}
 
   primeng@17.15.0:
     resolution: {integrity: sha512-DzEDFVKaAjCfOmF8/Nenun7/nwNb/KY0T8LZJTFVbWok3xDB+2U01/yfhPsQMz+7aVnPFP8FHzbaI70Zt752/w==}
@@ -5195,6 +5210,12 @@ snapshots:
   '@ljharb/through@2.3.13':
     dependencies:
       call-bind: 1.0.7
+
+  '@ngrx/store-devtools@17.2.0(@ngrx/store@17.2.0(@angular/core@17.3.6(rxjs@7.8.1)(zone.js@0.14.5))(rxjs@7.8.1))(rxjs@7.8.1)':
+    dependencies:
+      '@ngrx/store': 17.2.0(@angular/core@17.3.6(rxjs@7.8.1)(zone.js@0.14.5))(rxjs@7.8.1)
+      rxjs: 7.8.1
+      tslib: 2.6.2
 
   '@ngrx/store@17.2.0(@angular/core@17.3.6(rxjs@7.8.1)(zone.js@0.14.5))(rxjs@7.8.1)':
     dependencies:
@@ -7378,6 +7399,8 @@ snapshots:
       nanoid: 3.3.7
       picocolors: 1.0.0
       source-map-js: 1.2.0
+
+  primeflex@3.3.1: {}
 
   primeng@17.15.0(@angular/common@17.3.6(@angular/core@17.3.6(rxjs@7.8.1)(zone.js@0.14.5))(rxjs@7.8.1))(@angular/core@17.3.6(rxjs@7.8.1)(zone.js@0.14.5))(@angular/forms@17.3.6(@angular/common@17.3.6(@angular/core@17.3.6(rxjs@7.8.1)(zone.js@0.14.5))(rxjs@7.8.1))(@angular/core@17.3.6(rxjs@7.8.1)(zone.js@0.14.5))(@angular/platform-browser@17.3.6(@angular/animations@17.3.6(@angular/core@17.3.6(rxjs@7.8.1)(zone.js@0.14.5)))(@angular/common@17.3.6(@angular/core@17.3.6(rxjs@7.8.1)(zone.js@0.14.5))(rxjs@7.8.1))(@angular/core@17.3.6(rxjs@7.8.1)(zone.js@0.14.5)))(rxjs@7.8.1))(rxjs@7.8.1)(zone.js@0.14.5):
     dependencies:
