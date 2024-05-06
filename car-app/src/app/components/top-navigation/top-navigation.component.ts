@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './top-navigation.component.html',
   styleUrl: './top-navigation.component.scss'
 })
-export class TopNavigationComponent {
+export default class TopNavigationComponent {
 
 }

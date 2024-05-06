@@ -1,5 +1,5 @@
 {
-  "name": "car-purchase-app",
+  "name": "car-app",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:car-purchase-app": "node dist/car-purchase-app/server/server.mjs"
+    "serve:ssr:car-app": "node dist/car-app/server/server.mjs"
   },
   "private": true,
   "dependencies": {
@@ -21,11 +21,13 @@
     "@angular/platform-server": "^17.1.0",
     "@angular/router": "^17.1.0",
     "@angular/ssr": "^17.1.3",
+    "@ngrx/effects": "^17.2.0",
     "@ngrx/store": "^17.2.0",
     "@ngrx/store-devtools": "^17.2.0",
+    "bootstrap": "5.3.3",
     "express": "^4.18.2",
     "primeflex": "^3.3.1",
-    "primeng": "^17.15.0",
+    "primeng": "^17.16.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
