@@ -6,18 +6,25 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { BrowseComponent } from './pages/browse/browse.component';
 
+import { FormsModule } from '@angular/forms';
+import { provideAnimations } from '@angular/platform-browser/animations';
+import { provideToastr } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
     BrowseComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    LoginComponent,
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideToastr(),
+    provideAnimations(),
   ],
   bootstrap: [AppComponent]
 })
