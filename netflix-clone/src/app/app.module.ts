@@ -9,17 +9,19 @@ import { BrowseComponent } from './pages/browse/browse.component';
 import { FormsModule } from '@angular/forms';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BrowseComponent,
   ],
   imports: [
     BrowserModule,
     LoginComponent,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HeaderComponent,
+    BrowseComponent,
   ],
   providers: [
     provideClientHydration(),
