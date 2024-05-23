@@ -10,6 +10,9 @@ import { FormsModule } from '@angular/forms';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 import { HeaderComponent } from './components/header/header.component';
+import { MovieCategoryComponent } from './components/movie-category/movie-category.component';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,11 +25,14 @@ import { HeaderComponent } from './components/header/header.component';
     FormsModule,
     HeaderComponent,
     BrowseComponent,
+    MovieCategoryComponent,
+    MovieCardComponent,
   ],
   providers: [
     provideClientHydration(),
     provideToastr(),
     provideAnimations(),
+    provideHttpClient(),
   ],
   bootstrap: [AppComponent]
 })

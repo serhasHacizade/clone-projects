@@ -2,7 +2,7 @@
     <app-header></app-header>
     <div class="banner">
         <img src="" class="banner-img" alt="">
-        <div>
+        <div class="banner-movie-info">
             <h4>Movie title</h4>
             <p>Movie description</p>
             <div>
@@ -11,12 +11,7 @@
         </div>
     </div>
     <div class="movie-categories">
-        <div class="movies">
-            <div class="movie-card">
-                <img src="" alt="movie image">
-                <h4>title</h4>
-                <p>movie description</p>
-            </div>
-        </div>
+        <app-movie-category [title]="'Popular'" [movieList]="popularMovie"></app-movie-category>
+        <app-movie-category [title]="'New releases'" [movieList]="popularMovie"></app-movie-category>
     </div>
 </div>
