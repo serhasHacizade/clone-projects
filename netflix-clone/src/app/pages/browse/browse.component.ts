@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../../components/header/header.component';
 import { MovieCategoryComponent } from '../../components/movie-category/movie-category.component';
 import { MovieService } from '../../services/movie.service';
+import { Movie } from '../../types/movies';
+import { tmdbConfig } from '../../constants/config';
 
 @Component({
   selector: 'app-browse',
@@ -14,15 +16,28 @@ import { MovieService } from '../../services/movie.service';
 export class BrowseComponent {
   movieService = inject(MovieService)
 
-  popularMovie:any[] = [];
+  tmdbConfig = tmdbConfig;
+
+  popularMovies: Movie[] = [];
+  topRatedMovies: Movie[] = [];
+  upcomingMovies: Movie[] = [];
+  nowPlayingMovies: Movie[] = [];
+
+  bannerMovie!: Movie;
+
   ngOnInit() {
     this.movieService.getPopularMovies().subscribe((res:any) => {
-      console.log(res.results);
-      this.popularMovie = res.results;
-      
+      this.popularMovies = res.results;
+      this.bannerMovie = this.popularMovies[0];
+    });
+    this.movieService.getTopRatedMovies().subscribe((res:any) => {
+      this.topRatedMovies = res.results;
+    });
+    this.movieService.getUpcomingMovies().subscribe((res:any) => {
+      this.upcomingMovies = res.results;
+    });
+    this.movieService.getNowPlayingMovies().subscribe((res:any) => {
+      this.nowPlayingMovies = res.results;
     });
   }
-
-
-
 }

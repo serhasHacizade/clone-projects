@@ -1,17 +1,19 @@
 <div class="browse-page">
     <app-header></app-header>
     <div class="banner">
-        <img src="" class="banner-img" alt="">
+        <img [src]="tmdbConfig.imagePath + bannerMovie.poster_path" class="banner-img" alt="">
         <div class="banner-movie-info">
-            <h4>Movie title</h4>
-            <p>Movie description</p>
+            <h4>{{bannerMovie.original_title}}</h4>
+            <p>{{ bannerMovie.overview}}</p>
             <div>
                 <button>More Info</button>
             </div>
         </div>
     </div>
     <div class="movie-categories">
-        <app-movie-category [title]="'Popular'" [movieList]="popularMovie"></app-movie-category>
-        <app-movie-category [title]="'New releases'" [movieList]="popularMovie"></app-movie-category>
+        <app-movie-category [title]="'Popular'" [movieList]="popularMovies"></app-movie-category>
+        <app-movie-category [title]="'Top Rated'" [movieList]="topRatedMovies"></app-movie-category>
+        <app-movie-category [title]="'Upcoming'" [movieList]="upcomingMovies"></app-movie-category>
+        <app-movie-category [title]="'Now Playing'" [movieList]="nowPlayingMovies"></app-movie-category>
     </div>
 </div>
