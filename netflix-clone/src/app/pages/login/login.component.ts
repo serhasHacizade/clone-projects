@@ -32,7 +32,7 @@ export class LoginComponent {
 
   onSubmit() {
     if (!this.email || !this.password) {
-      this.toasterService.error("provide email or parrword!");
+      this.toasterService.error("provide email or password!");
       return;
     }
     

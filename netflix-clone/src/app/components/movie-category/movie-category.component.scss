@@ -1,0 +1,10 @@
+.category {
+    padding-left: 25px;
+    &:last-child {
+        padding-bottom: 80px;
+    }
+    &:first-child {
+        margin-top: 30px;
+    }
+
+}
