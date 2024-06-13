@@ -2,12 +2,10 @@
     <div class="flex">
         <div id="header" class="fixed w-[420px] z-10">
             <div class="bg-[#F0F0F0] w-full flex justify-between items-center px-3 py-2">
-                <img class="rounded-full ml-1 w-10"
-                    src="https://musicimage.xboxlive.com/catalog/video.tvseason.8D6KGWX78G76/image?locale=en-us&purposes=BoxArt&mode=crop&q=90&h=100&w=100"
-                    alt="">
+                <img class="rounded-full ml-1 w-10" :src="userStore.picture || ''" alt="">
                 <div class="flex items-center justify-center">
                     <AccountGroupIcon fillColor="#515151" class="mr-6" />
-                    <DotsVerticalIcon fillColor="#515151" class="cursor-pointer" />
+                    <DotsVerticalIcon @click="logout" fillColor="#515151" class="cursor-pointer" />
                 </div>
             </div>
             <div id="search" class="bg-white w-full px-2 border-b shadow-sm">
@@ -19,7 +17,13 @@
                 </div>
             </div>
         </div>
-        <ChatsView class="mt-[100px]" />
+        <div v-if="showFindFriends">
+            <ChatsView class="mt-[100px]" />
+        </div>
+
+        <div v-else>
+            <FindFriendsView />
+        </div>
 
         <div v-if="open">
             <MessageView />
@@ -50,14 +54,34 @@
 <script setup>
 import ChatsView from "./ChatsView.vue";
 import MessageView from "./MessageView.vue";
+import FindFriendsView from "./FindFriendsView.vue";
 
 import AccountGroupIcon from "vue-material-design-icons/AccountGroup.vue";
 import DotsVerticalIcon from "vue-material-design-icons/DotsVertical.vue";
 import MagnifyIcon from "vue-material-design-icons/Magnify.vue";
 
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+
+import { useUserStore } from '../store/user-store';
+import { useRouter } from "vue-router";
+
+const userStore = useUserStore();
+const router = useRouter();
 
 let open = ref(true);
+let showFindFriends = ref(false);
+onMounted(() => {
+    try {
+        userStore.getAllUsers();
+    } catch (error) {
+        console.log(error);
+    }
+});
+
+const logout = () => {
+    let res = confirm("are you sure you want to logout");
+    if (res) userStore.logout(); router.push("/login");
+};
 </script>
 
 <style lang="scss" scoped></style>

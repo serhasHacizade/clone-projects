@@ -67,7 +67,7 @@ import SendIcon from "vue-material-design-icons/Send.vue";
 <style>
 
 #BG {
-    background: url("../../public/message-bg.png") no-repeat center;
+    background: url("/message-bg.png") no-repeat center;
     width: 100%;
     height: 100%;
     position: fixed;
