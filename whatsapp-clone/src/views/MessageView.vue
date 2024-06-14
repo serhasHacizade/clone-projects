@@ -44,8 +44,9 @@
                     <PaperclipIcon :size="27" fillColor="#515151" class="mx-1.5 mr-3" />
                     <input type="text" class="mr-1 shadow appearance-none w-full py-3 px-4 
                             text-gray-700 leading-tight focus:outline-none focus:shadow-outline
-                            rounded-lg" autocomplete="off" placeholder="Start a new chat">
-                    <button class="ml-3 p-2 w-12 flex items-center justify-center">
+                            rounded-lg" autocomplete="off" placeholder="Start a new chat"
+                            v-model="message">
+                    <button @click="sendMessage" class="ml-3 p-2 w-12 flex items-center justify-center">
                         <SendIcon fillColor="#515151" />
                     </button>
                 </div>
@@ -61,11 +62,27 @@ import DotsVerticalIcon from "vue-material-design-icons/DotsVertical.vue";
 import EmoticonExcitedOutlineIcon from "vue-material-design-icons/EmoticonExcitedOutline.vue";
 import PaperclipIcon from "vue-material-design-icons/Paperclip.vue";
 import SendIcon from "vue-material-design-icons/Send.vue";
+import { useUserStore } from "../store/user-store";
+import { ref } from "vue";
+import { storeToRefs } from "pinia";
+
+
+const userStore = useUserStore();
+let message = ref("");
+
+const { userDataForChat } = storeToRefs(userStore);
+
+const sendMessage = async () => {
+    await userStore.sendMessage({
+        message: message.value,
+        sub2: userDataForChat.value[0].sub2,
+        chatId: userDataForChat.value[0].id
+    });
+};
 
 </script>
 
 <style>
-
 #BG {
     background: url("/message-bg.png") no-repeat center;
     width: 100%;
@@ -73,5 +90,4 @@ import SendIcon from "vue-material-design-icons/Send.vue";
     position: fixed;
     z-index: -1;
 }
-
 </style>

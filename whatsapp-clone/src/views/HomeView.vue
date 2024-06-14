@@ -13,7 +13,8 @@
                     <MagnifyIcon fillColor="#515151" :size="18" class="mr-6" />
                     <input type="text" class="ml-5 appearance-none w-full bg-[#F0F0F0] py-1.5 px-2.5 
                             text-gray-700 leading-tight focus:outline-none focus:shadow-outline placeholder:text-sm
-                            placeholder:text-gray-500" autocomplete="off" placeholder="Start a new chat">
+                            placeholder:text-gray-500" autocomplete="off" placeholder="Start a new chat"
+                        @click="showFindFriends = !showFindFriends">
                 </div>
             </div>
         </div>
@@ -25,7 +26,7 @@
             <FindFriendsView />
         </div>
 
-        <div v-if="open">
+        <div v-if="userDataForChat.length">
             <MessageView />
         </div>
 
@@ -35,7 +36,7 @@
                     <div>
                         <div class="w-full items-center justify-center">
 
-                            <img width="375" src="../../public/w-web-not-loaded-chat.png" alt="">
+                            <img width="375" src="/w-web-not-loaded-chat.png" alt="">
                         </div>
                         <div class="text-[32px] text-gray-500 font-light mt-10">Whatsapp Web</div>
                         <div class="text-[14px] text-gray-600 font-light mt-2">
@@ -60,16 +61,16 @@ import AccountGroupIcon from "vue-material-design-icons/AccountGroup.vue";
 import DotsVerticalIcon from "vue-material-design-icons/DotsVertical.vue";
 import MagnifyIcon from "vue-material-design-icons/Magnify.vue";
 
-import { onMounted, ref } from "vue";
+import { onMounted } from "vue";
 
 import { useUserStore } from '../store/user-store';
 import { useRouter } from "vue-router";
+import { storeToRefs } from "pinia";
 
 const userStore = useUserStore();
 const router = useRouter();
+const { showFindFriends, userDataForChat } = storeToRefs(userStore);
 
-let open = ref(true);
-let showFindFriends = ref(false);
 onMounted(() => {
     try {
         userStore.getAllUsers();
