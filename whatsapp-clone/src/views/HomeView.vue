@@ -14,7 +14,7 @@
                     <input type="text" class="ml-5 appearance-none w-full bg-[#F0F0F0] py-1.5 px-2.5 
                             text-gray-700 leading-tight focus:outline-none focus:shadow-outline placeholder:text-sm
                             placeholder:text-gray-500" autocomplete="off" placeholder="Start a new chat"
-                        @click="showFindFriends = !showFindFriends">
+                        >
                 </div>
             </div>
         </div>
@@ -71,9 +71,10 @@ const userStore = useUserStore();
 const router = useRouter();
 const { showFindFriends, userDataForChat } = storeToRefs(userStore);
 
-onMounted(() => {
+onMounted(async () => {
     try {
         userStore.getAllUsers();
+        await userStore.getAllChatsByUser();
     } catch (error) {
         console.log(error);
     }

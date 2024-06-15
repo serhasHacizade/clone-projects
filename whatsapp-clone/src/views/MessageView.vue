@@ -20,19 +20,17 @@
             </div>
             <div id="messages-section" class="pt-20 pb-8 z-[-1] h-[calc(100vh-65px)] w-[calc(100vw-420px)] 
             overflow-auto fixed touch-auto">
-                <div class="px-20 text-sm">
-                    <div class="flex w-[calc(100%-50px)]">
-                        <div class="inline-block bg-white p-2 rounded-md my-1">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab inventore esse autem ipsum
-                            ipsam sequi, incidunt accusantium, obcaecati molestiae ex pariatur blanditiis eos fugit et
-                            debitis maiores magni hic. Recusandae.
+                <div v-if="chats && chats.length " class="px-20 text-sm">
+                    <div v-for="msg in chats[0].messages" :key="msg">
+                        <div v-if="msg.sub === sub" class="flex w-[calc(100%-50px)]">
+                            <div class="inline-block bg-white p-2 rounded-md my-1">
+                                {{ msg.message }}
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex justify-end space-x-1 w-[calc(100%-50px)] float-right">
-                        <div class="inline-block bg-green-200 p-2 rounded-md my-1">
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab inventore esse autem ipsum
-                            ipsam sequi, incidunt accusantium, obcaecati molestiae ex pariatur blanditiis eos fugit et
-                            debitis maiores magni hic. Recusandae.
+                        <div v-else class="flex justify-end space-x-1 w-[calc(100%-50px)] float-right">
+                            <div class="inline-block bg-green-200 p-2 rounded-md my-1">
+                                {{ msg.message }}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -44,8 +42,8 @@
                     <PaperclipIcon :size="27" fillColor="#515151" class="mx-1.5 mr-3" />
                     <input type="text" class="mr-1 shadow appearance-none w-full py-3 px-4 
                             text-gray-700 leading-tight focus:outline-none focus:shadow-outline
-                            rounded-lg" autocomplete="off" placeholder="Start a new chat"
-                            v-model="message">
+                            rounded-lg" autocomplete="off" placeholder="Start a new chat" v-model="message"
+                        @keyup.enter="sendMessage">
                     <button @click="sendMessage" class="ml-3 p-2 w-12 flex items-center justify-center">
                         <SendIcon fillColor="#515151" />
                     </button>
@@ -70,7 +68,7 @@ import { storeToRefs } from "pinia";
 const userStore = useUserStore();
 let message = ref("");
 
-const { userDataForChat } = storeToRefs(userStore);
+const { userDataForChat, chats, sub } = storeToRefs(userStore);
 
 const sendMessage = async () => {
     await userStore.sendMessage({
