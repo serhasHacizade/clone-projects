@@ -152,12 +152,6 @@ export const useUserStore = defineStore("user", {
         console.log(error);
       }
     },
-    async hasReadMessage (data) {
-      await updateDoc(doc(db, `chat/${data.id}`), {
-        [data.key1]: data.val1,
-        [data.key2]: data.val2,
-      }, {merge: true})
-    },
     logout() {
       this.sub = ""
       this.email = ""
@@ -165,9 +159,10 @@ export const useUserStore = defineStore("user", {
       this.firstName = ""
       this.lastName = ""
       this.allUsers = []
+      this.chats = []
       this.userDataForChat = []
-      this.showFindFriends = false
       this.removeUsersFromFindFriends = []
+      this.showFindFriends = false
       this.currentChat = false
     }
   },

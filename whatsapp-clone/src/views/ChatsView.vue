@@ -46,7 +46,6 @@ const openChat = async (chat) => {
             data.val1 = true;             
             data.val2 = true;            
         }
-        await userStore.hasReadMessage(data)
     } catch (error) {
         console.log(error);
     }

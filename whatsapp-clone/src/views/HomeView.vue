@@ -19,11 +19,11 @@
             </div>
         </div>
         <div v-if="showFindFriends">
-            <ChatsView class="mt-[100px]" />
+            <FindFriendsView/>
         </div>
-
+        
         <div v-else>
-            <FindFriendsView />
+            <ChatsView class="mt-[100px]" />
         </div>
 
         <div v-if="userDataForChat.length">
