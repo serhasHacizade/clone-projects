@@ -14,10 +14,10 @@
                     <Icon name="material-symbols:home-outline" size="35" color="#ffffff"/>
                 </button>
                 <button @click="userStore.isMenuOverlay=true" class="w-full h-full">
-                    <Icon name="material-symbols:edit-square-outline-rounded " class="mb-1" size="32" color="#ffffff"/>
+                    <Icon name="material-symbols:edit-square-outline-rounded" class="mb-1" size="32" color="#ffffff"/>
                 </button>
                 <button @click="userStore.isLogoutOverlay=true" class="w-full h-full">
-                    <Icon name="ph:sign-out " class="mb-1" size="32" color="#ffffff"/>
+                    <Icon name="ph:sign-out" class="mb-1" size="32" color="#ffffff"/>
                 </button>
             </div>
         </div>
