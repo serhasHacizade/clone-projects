@@ -2,10 +2,10 @@
     <div class="flex">
         <div id="header" class="fixed w-[420px] z-10">
             <div class="bg-[#F0F0F0] w-full flex justify-between items-center px-3 py-2">
-                <img src="https://placehold.co/100x100" alt="" class="rounded-full ml-1 w-10">
+                <img :src="userStore.picture || ''" alt="" class="rounded-full ml-1 w-10">
                 <div class="flex items-center justify-center">
                     <AccountGroupIcon fillColor="#515151" class="mr-6" />
-                    <DotsVerticalIcon fillColor="#515151" class="mr-6 cursor-pointer" />
+                    <DotsVerticalIcon @click="logout" fillColor="#515151" class="mr-6 cursor-pointer" />
                 </div>
             </div>
 
@@ -18,7 +18,12 @@
                 </div>
             </div>
         </div>
-        <ChatsView class="mt-[100px]" />
+        <div v-if="showFindFriends">
+            <ChatsView class="mt-[100px]" />
+        </div>
+        <div v-else>
+            <FindFriendsView class="pt-28" />
+        </div>
 
         <div v-if="open">
             <MessageView />
@@ -52,10 +57,23 @@ import MagnifyIcon from "vue-material-design-icons/Magnify.vue";
 
 import { ref } from "vue";
 
-
 import ChatsView from "./ChatsView.vue";
 import MessageView from "./MessageView.vue";
+import FindFriendsView from "./FindFriendsView.vue";
+
+import { useUserStore } from "@/store/user-store";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
+const userStore = useUserStore();
+
 
 let open = ref(true);
+let showFindFriends = ref(false);
+
+const logout = () => {
+    let res = confirm("Are your sure you want to logout");
+    if (res) userStore.logout();router.push("/login");
+};
 
 </script>

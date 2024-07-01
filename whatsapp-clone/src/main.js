@@ -13,6 +13,6 @@ pinia.use(piniaPluginPersistedState);
 const app =createApp(App);
 app.use(pinia)
 app.use(router)
-app.use(vue3GoogleLogin, {clientId: ""});
+app.use(vue3GoogleLogin, {clientId: "202248746507-0smldeq2rafg8sv1ibnlmj7oiunibb0r.apps.googleusercontent.com"});
 
 app.mount('#app');
