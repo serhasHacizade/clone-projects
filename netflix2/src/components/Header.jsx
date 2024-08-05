@@ -1,11 +1,12 @@
 import React from "react";
 import logo from "../assets/logo.png";
 import { useNavigate } from "react-router-dom";
+import "./Header.css";
 
 const Header = (props) => {
   const navigate = useNavigate();
   return (
-    <div className="container py-0 px-8 flex items-center justify-between">
+    <div className="container py-0 px-8 flex items-center justify-between absolute w-screen">
       <div className="logo">
         <img src={logo} alt="logo" className="h-20" />
       </div>
