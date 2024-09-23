@@ -10,19 +10,10 @@ import { useState } from "react";
 import { UserFormValidation } from "@/lib/validation";
 import { useRouter } from "next/navigation";
 import { createUser } from "@/lib/actions/patient.actions";
+import { FormFieldType } from "./PatientForm";
 
-export enum FormFieldType {
-  INPUT = "input",
-  TEXTAREA = "textarea",
-  PHONE_INPUT = "phoneInput",
-  CHECKBOX = "checkbox",
-  DATE_PICKER = "datePicker",
-  SELECET = "select",
-  SKELETON = "sleketon",
-}
 
-const PatientForm = () => {
-
+const RegisterForm = ({ user }: { user: User }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -31,18 +22,21 @@ const PatientForm = () => {
     defaultValues: {
       name: "",
       email: "",
-      phone: ""
+      phone: "",
     },
   });
-  const onSubmit = async ({name, email, phone}: z.infer<typeof UserFormValidation>) => {
+  const onSubmit = async ({
+    name,
+    email,
+    phone,
+  }: z.infer<typeof UserFormValidation>) => {
     setIsLoading(true);
     try {
-      const userData = {name, email,phone};
+      const userData = { name, email, phone };
       const user = await createUser(userData);
-      if (user) router.push(`/patients/${user.$id}/register`)
+      if (user) router.push(`/patients/${user.$id}/register`);
     } catch (error) {
       console.log(error);
-      
     }
   };
   return (
@@ -61,28 +55,10 @@ const PatientForm = () => {
           iconSrc="/assets/icons/user.svg"
           iconAlt="user"
         />
-        <CustomFormField
-          control={form.control}
-          fieldType={FormFieldType.INPUT}
-          name="email"
-          label="Email"
-          placeholder="johndoe@gmail.com"
-          iconSrc="/assets/icons/email.svg"
-          iconAlt="email"
-        />
-        <CustomFormField
-          control={form.control}
-          fieldType={FormFieldType.PHONE_INPUT}
-          name="phone"
-          label="Phone number"
-          placeholder="0 (555) 123 45 67"
-          iconSrc="/assets/icons/email.svg"
-          iconAlt="email"
-        />
         <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
       </form>
     </Form>
   );
 };
 
-export default PatientForm;
+export default RegisterForm;
