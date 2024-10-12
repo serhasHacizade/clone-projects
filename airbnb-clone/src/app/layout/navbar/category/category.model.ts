@@ -1,19 +1,19 @@
 import { IconName } from "@fortawesome/free-brands-svg-icons"
 
 export type CategoryName =
-  | 'All'
-  | 'AMAXING_VIEWS'
+  | 'ALL'
+  | 'AMAZING_VIEWS'
   | 'OMG'
   | 'TREEHOUSES'
   | 'BEACH'
   | 'FARMS'
   | 'TINY_HOMES'
-  | 'LAKES'
+  | 'LAKE'
   | 'CONTAINERS'
   | 'CAMPING'
   | 'CASTLE'
   | 'SKIING'
-  | 'CAMPERS' | "ARTIC" | "BOAT" | "BED_AND_BREAKFATS"| "ROOMS" | "EARTH_HOMES" | "TOWER" | "CAVES" | "LUXES" | "CHEFS_KITCHEN"
+  | 'CAMPERS' | "ARTIC" | "BOAT" | "BED_AND_BREAKFASTS"| "ROOMS" | "EARTH_HOMES" | "TOWER" | "CAVES" | "LUXES" | "CHEFS_KITCHEN"
 
 
   export interface Category {
