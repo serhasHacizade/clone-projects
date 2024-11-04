@@ -64,6 +64,12 @@ export const useSongStore = defineStore('song', {
       this.resetState();
       let track = artist.tracks[0]
       this.loadSong(artist, track)
+    },
+    resetSong() {
+      this.isPlaying=false
+      this.audio= null
+      this.currentArtist = null
+      this.currentTrack = null
     }
 
   },
