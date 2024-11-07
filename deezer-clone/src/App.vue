@@ -10,7 +10,7 @@ import SideMenuItem from "./components/SideMenuItem.vue";
 <template>
   <div
     id="TopNav"
-    class="fixed right-0 flex items-center justify-between w-[calc(100%-240px)] h-[56px] border-b border-b-[#32323D]"
+    class="fixed right-0 flex items-center justify-between w-[calc(100%-240px)] h-[56px] border-b border-b-[#32323D]  overflow-x-hidden"
   >
     <div class="flex items-center w-full">
       <Magnify class="pl-6 mt-1 pr-2" fillColor="#7E7E88" :size="22" />
@@ -59,7 +59,7 @@ import SideMenuItem from "./components/SideMenuItem.vue";
   </div>
 
   <div
-    class="fixed w-[calc(100%-240px)] h-[calc(100%-56px)] ml-[240px] mt-[56px] overflow-x-auto"
+    class="fixed w-[calc(100%-240px)] h-[calc(100%-56px)] ml-[240px] mt-[56px] overflow-x-hidden"
   >
     <RouterView />
   </div>

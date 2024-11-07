@@ -9,6 +9,7 @@ import artist from "../artist.json";
 
 import { useSongStore } from "@/stores/song";
 import { storeToRefs } from "pinia";
+import SongRow from "@/components/SongRow.vue";
 
 const useSong = useSongStore();
 const { isPlaying, currentTrack, currentArtist } = storeToRefs(useSong);
@@ -129,5 +130,8 @@ const playFunc = () => {
       <p class="text-xs font-light text-[#aeaeae]">TRACK</p>
       <ClockTimeFiveOutline fillColor="#aeaeae" :size="20"/>
     </div>
+    <ul class="w-full mx-8 pr-16 min-w-[650px]" v-for="track in artist.tracks" :key="track">
+      <SongRow v-if="track" :track="track"/>
+    </ul>
   </div>
 </template>
